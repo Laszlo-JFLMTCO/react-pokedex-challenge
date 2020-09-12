@@ -1,0 +1,15 @@
+.fetchErrorOK {
+  background-color: green;
+}
+
+.fetchErrorNOK {
+  background-color: red;
+}
+
+.fetchStatusOK {
+  background-color: green;
+}
+
+.fetchStatusNOK {
+  background-color: red;
+}
