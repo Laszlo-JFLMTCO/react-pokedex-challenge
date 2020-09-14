@@ -11,11 +11,9 @@ function mapStateToProps(state) {
 
 class List extends React.Component {
   render() {
-    console.log(this.props.filteredList);
     var filteredList = this.props.filteredList.map((pokemon) => (
       <Pokemon key={pokemon.id} details={pokemon}/>
     ));
-    console.log(filteredList);
     return(
       <React.Fragment>
         { filteredList }

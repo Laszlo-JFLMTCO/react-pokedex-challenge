@@ -2,7 +2,6 @@ import React from 'react';
 
 class Pokemon extends React.Component{
   render(){
-    console.log(this.props.details)
     return(
       <div>
         <h3>{ this.props.details.name }</h3>

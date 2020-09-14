@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateFetchError, updateFetchStatus, updateFilteredList } from '../actions/index';
+import { updateFetchError, updateFetchStatus, updateList, updateFilteredList } from '../actions/index';
 import Status from './Status';
 import List from './List';
+import Filters from './Filters';
 
 function mapStateToProps(state) {
   return { 
@@ -14,6 +15,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    updateList: newList => dispatch(updateList(newList)),
     updateFilteredList: newFilteredList => dispatch(updateFilteredList(newFilteredList)),
     updateFetchStatus: newFetchStatus => dispatch(updateFetchStatus(newFetchStatus)),
     updateFetchError: newFetchError => dispatch(updateFetchError(newFetchError))
@@ -25,6 +27,7 @@ class Pokemons extends React.Component {
     super(props);
     this.handleUpdateFetchStatus = this.handleUpdateFetchStatus.bind(this);
     this.handleUpdateFetchError = this.handleUpdateFetchError.bind(this);
+    this.handleUpdateList = this.handleUpdateList.bind(this);
     this.handleUpdateFilteredList = this.handleUpdateFilteredList.bind(this);
   }
   
@@ -44,6 +47,14 @@ class Pokemons extends React.Component {
     )
   }
 
+  handleUpdateList(newList){
+    this.props.updateList(
+      {
+        list: newList
+      }
+    )
+  }
+
   handleUpdateFilteredList(newList){
     this.props.updateFilteredList(
       {
@@ -57,6 +68,7 @@ class Pokemons extends React.Component {
       .then(res => res.json())
       .then(
         (result) => {
+          this.handleUpdateList(result.pokemon);
           this.handleUpdateFilteredList(result.pokemon);
           this.handleUpdateFetchStatus(true);
           this.handleUpdateFetchError(null);
@@ -76,6 +88,9 @@ class Pokemons extends React.Component {
       <React.Fragment>
         <div>
           <Status/>
+        </div>
+        <div>
+          <Filters />
         </div>
         <div>
           <List />
