@@ -11,18 +11,18 @@ function mapStateToProps(state) {
 
 class Status extends React.Component {
   render() {
+    var fetchStatus = false.toString();
+    var fetchStatusStyle = "fetchStatusNOK";
+    if (this.props.isLoaded) {
+      fetchStatus = this.props.isLoaded.toString()
+      fetchStatusStyle = "fetchStatusOK";
+    }
+
     var fetchError = "none";
     var fetchErrorStyle = "fetchErrorOK";
     if (this.props.error != null) {
       fetchError = this.props.error.toString()
       fetchErrorStyle = "fetchErrorNOK";
-    }
-
-    var fetchStatus = false.toString();
-    var fetchStatusStyle = "fetchStatusNOK";
-    if (this.props.isLoaded) {
-      fetchError = this.props.isLoaded.toString()
-      fetchStatusStyle = "fetchStatusOK";
     }
 
     return(
