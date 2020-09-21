@@ -1,53 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateFilteredList } from '../../actions/index'
-import FilterList from './filtering'
-
-function mapStateToProps(state) {
-  return { 
-    list: state.list,
-    isLoaded: state.isLoaded,
-    error: state.error
-  };
-};
+import { updateNameToCheck } from '../../actions/index'
+import { CleanUpFilterList } from './common'
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateFilteredList: newFilteredList => dispatch(updateFilteredList(newFilteredList)),
+    updateNameToCheck: newNameToCheck => dispatch(updateNameToCheck(newNameToCheck)),
   };
 }
 
 class NameFilter extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      value:""
-    }
     this.handleChange = this.handleChange.bind(this)
   };
 
   handleChange(event) {
-    var newValue = event.target.value;
-    this.setState(
-      {
-        value: newValue
-      }
-    );
-    this.props.updateFilteredList(
-      {
-        filteredList: FilterList(this.props.list, newValue),
-      }
-    );
+    this.props.updateNameToCheck({nameToCheck: CleanUpFilterList([event.target.value])});
+    this.props.applyAllFilters();
   }
 
   render(){
     return(
       <label>
         Filter by Name:
-        <input type="text" placeholder="type a name" value={this.state.value} onChange={this.handleChange} />
+        <input type="text" placeholder="type a name" onChange={this.handleChange} />
       </label>
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NameFilter);
+export default connect(null, mapDispatchToProps)(NameFilter);
