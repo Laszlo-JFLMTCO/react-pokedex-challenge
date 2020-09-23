@@ -27,7 +27,7 @@ class Status extends React.Component {
     return(
       <React.Fragment>
         <div className={`alert text-center ${fetchStatusStyle}`} role="alert">
-          Was JSON from URL loaded: <strong>{ fetchStatus }</strong>
+          Was JSON from URL loaded? <strong>{ fetchStatus }</strong>
           <button type="button" className="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
