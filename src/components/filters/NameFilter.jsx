@@ -22,10 +22,12 @@ class NameFilter extends React.Component{
 
   render(){
     return(
-      <label>
-        Filter by Name:
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Filter By Name</span>
+        </div>
         <input type="text" placeholder="type a name" onChange={this.handleChange} />
-      </label>
+      </div>
     )
   }
 }
