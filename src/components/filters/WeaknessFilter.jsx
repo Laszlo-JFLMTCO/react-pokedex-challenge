@@ -45,7 +45,14 @@ class WeaknessFilter extends React.Component{
 
     return(
       <React.Fragment>
-        Filter by Weakness: { weaknessFilters }
+        <div className="row">
+          <div className="col-2">
+            Filter by Weakness:
+          </div>
+          <div className="col-10">
+            { weaknessFilters }
+          </div>
+        </div>
       </React.Fragment>
     )
   }

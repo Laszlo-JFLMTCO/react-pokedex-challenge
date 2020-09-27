@@ -45,7 +45,14 @@ class TypeFilter extends React.Component{
 
     return(
       <React.Fragment>
-        Filter by Type: { typeFilters }
+        <div className="row">
+          <div className="col-2">
+            Filter By Type:
+          </div>
+          <div className="col-10">
+            { typeFilters }
+          </div>
+        </div>
       </React.Fragment>
     )
   }

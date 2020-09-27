@@ -114,16 +114,20 @@ class Pokemons extends React.Component {
   }
 
   render() {
+    var totalPokemons = this.props.list.length
+    var filteredPokemons = this.props.filteredList.length
     return(
       <React.Fragment>
         <div>
           <Status/>
         </div>
-        <div>
-          <Filters applyAllFilters={this.handleApplyAllFilters}/>
-        </div>
-        <div>
-          <List />
+        <div className="container">
+          <div>
+            <Filters total={totalPokemons} filtered={filteredPokemons} applyAllFilters={this.handleApplyAllFilters}/>
+          </div>
+          <div>
+            <List />
+          </div>
         </div>
       </React.Fragment>
     )
