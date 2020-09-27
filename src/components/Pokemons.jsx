@@ -121,11 +121,13 @@ class Pokemons extends React.Component {
         <div>
           <Status/>
         </div>
-        <div>
-          <Filters total={totalPokemons} filtered={filteredPokemons} applyAllFilters={this.handleApplyAllFilters}/>
-        </div>
-        <div>
-          <List />
+        <div className="container">
+          <div>
+            <Filters total={totalPokemons} filtered={filteredPokemons} applyAllFilters={this.handleApplyAllFilters}/>
+          </div>
+          <div>
+            <List />
+          </div>
         </div>
       </React.Fragment>
     )

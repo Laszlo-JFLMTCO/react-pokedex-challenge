@@ -6,11 +6,9 @@ class FilterTitle extends React.Component{
       <React.Fragment>
         <h2>
           <span className="mr-3">
-            Filters  
+            Filtered List  
           </span>
-          <button type="button" className="btn btn-secondary">
-            Pokemons After Filters Applied <span className="badge badge-light">{this.props.filtered}</span>
-          </button>
+            <span className="badge badge-secondary">{this.props.filtered}</span>
         </h2>
       </React.Fragment>
     )

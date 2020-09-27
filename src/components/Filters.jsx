@@ -8,7 +8,7 @@ class Filters extends React.Component{
   render(){
     return(
       <React.Fragment>
-        <div className="container">
+        <div>
           <div>
             <FilterTitle filtered={this.props.filtered}/>
           </div>

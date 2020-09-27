@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './List.css';
 import Pokemon from './Pokemon';
+import ListTitle from './ListTitle';
 
 function mapStateToProps(state) {
   return { 
@@ -14,8 +14,10 @@ class List extends React.Component {
     var filteredList = this.props.filteredList.map((pokemon) => (
       <Pokemon key={pokemon.id} details={pokemon}/>
     ));
+    var items = filteredList.length;
     return(
       <React.Fragment>
+        <ListTitle filtered={items}/>
         { filteredList }
       </React.Fragment>
     )
